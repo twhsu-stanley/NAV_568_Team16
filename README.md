@@ -37,5 +37,4 @@ Figure 2: the NEES plot
 <img src="https://user-images.githubusercontent.com/78635240/114788979-673e1b00-9d50-11eb-8f55-856c35e4fe3f.png" width="500" height="400">
 
 Figure 3: estimated and ground truth trajectories
-
 <img src="https://user-images.githubusercontent.com/78635240/114788207-0a8e3080-9d4f-11eb-96dc-bb7587c1f5e4.png" width="500" height="400">
