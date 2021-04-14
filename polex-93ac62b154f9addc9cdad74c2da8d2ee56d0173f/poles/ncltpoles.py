@@ -113,8 +113,7 @@ def save_global_map():
         else:
             imaps = []
             for imap in range(localmappos.shape[0]):
-                distance = np.linalg.norm(
-                    localmappos[imap] - globalmappos, axis=1).min()
+                distance = np.linalg.norm(localmappos[imap] - globalmappos, axis=1).min()
                 if distance > remapdistance:
                     imaps.append(imap)
         globalmappos = np.vstack([globalmappos, localmappos[imaps]])
@@ -437,28 +436,29 @@ def localize(sessionname, visualize = False):
             bar.update(i)
     
     # Plot the NEES (normalized estimation error squared) graph
-    plt.figure()
-    plt.subplot(311)
-    plt.plot(x_err, 'r')
-    plt.plot(x_sigma_contour,'b')
+    fig = plt.figure()
+    ax1 = plt.subplot(311)
+    plt.plot(x_err, 'r', label="Deviance from Ground Truth")
+    plt.plot(x_sigma_contour,'b', label='3-Sigma Contour')
     plt.plot(-x_sigma_contour,'b')
     plt.ylabel('x error')
     plt.xlabel('step')
-
-    plt.subplot(312)
+    # ax.legend(loc='upper right', bbox_to_anchor=(1,0))
+    ax2 = plt.subplot(312)
     plt.plot(y_err, 'r')
     plt.plot(y_sigma_contour,'b')
     plt.plot(-y_sigma_contour,'b')
     plt.ylabel('y error')
     plt.xlabel('step')
-
-    plt.subplot(313)
+    ax3 = plt.subplot(313)
     plt.plot(p_err, 'r')
     plt.plot(p_sigma_contour,'b')
     plt.plot(-p_sigma_contour,'b')
     plt.ylabel('theta error')
     plt.xlabel('step')
-    plt.savefig("NEES.png")
+    handles, labels = ax1.get_legend_handles_labels()
+    fig.legend(handles, labels, 'upper right')
+    plt.savefig(os.path.join(pynclt.resultdir, sessionname + '_NEES.png'))
 
     filename = os.path.join(session.dir, get_locfileprefix() \
         + datetime.datetime.now().strftime('_%Y-%m-%d_%H-%M-%S.npz'))
@@ -484,14 +484,14 @@ def plot_trajectories():
             for file in files:
                 T_w_r_est = np.load(os.path.join(pynclt.resultdir, sessionname, file))['T_w_r_est']
                 plt.clf()
-                plt.scatter(polemap[:, 0], polemap[:, 1], s=1, c='b', marker='.')
-                plt.plot(session.T_w_r_gt[::20, 0, 3], session.T_w_r_gt[::20, 1, 3], color=(0.5, 0.5, 0.5))
-                plt.plot(T_w_r_est[::20, 0, 3], T_w_r_est[::20, 1, 3], 'r')
+                plt.scatter(polemap[:, 0], polemap[:, 1], s=1, c='b', marker='.', label='Pole Landmarks')
+                plt.plot(session.T_w_r_gt[::20, 0, 3], session.T_w_r_gt[::20, 1, 3], color=(0.5, 0.5, 0.5), label='Ground Truth')
+                plt.plot(T_w_r_est[::20, 0, 3], T_w_r_est[::20, 1, 3], 'r', label='RIEKF Trajectory')
                 plt.xlabel('x [m]')
                 plt.ylabel('y [m]')
-                plt.gcf().subplots_adjust(
-                    bottom=0.13, top=0.98, left=0.145, right=0.98)
+                plt.gcf().subplots_adjust(bottom=0.13, top=0.98, left=0.145, right=0.98)
                 filename = sessionname + file[18:-4]
+                plt.legend()
                 plt.savefig(os.path.join(trajectorydir, filename + '.png'))
                 # plt.savefig(os.path.join(pgfdir, filename + '.pgf'))
 
@@ -564,11 +564,11 @@ if __name__ == '__main__':
     #save_global_map()
 
     # TODO: Change this to the session you want to find trajectory for
-    session = '2012-01-08'
+    session = '2012-01-15'
     #save_local_maps(session)
 
     # Set visualization to False
-    localize(session, False)
+    #localize(session, False)
     plot_trajectories()
     evaluate()
  
