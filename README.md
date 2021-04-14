@@ -33,8 +33,10 @@ Once complete downloading the data from NCLT dataset and building the dependenci
 4. ```plot_trajectories()``` plots the trajectories of both the estimated and ground truth poses, as shown in Fig. 3.
 5. ```evaluate()``` computes the mean error and root-mean-square error of between the estimated and ground truth poses
 
+
 Fig. 2: the NEES plot 
 ![2012-01-08_NEES](https://user-images.githubusercontent.com/78635240/114791112-e719b480-9d53-11eb-9be5-4881533e86b9.png)
+
 
 Fig. 3: estimated and ground truth trajectories 
 ![2012-01-08_2021-04-13_23-55-39](https://user-images.githubusercontent.com/78635240/114791134-f7319400-9d53-11eb-87d9-6b327767e1c6.png)
