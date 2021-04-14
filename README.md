@@ -17,7 +17,7 @@ The NCLT Dataset is a large-scale, long-term dataset collected on the North Camp
 Landmarks extraction and mapping are implemented using the algoritm proposed in [this paper](http://ais.informatik.uni-freiburg.de/publications/papers/schaefer19ecmr.pdf) (Schaefer et al. 2019). Use Python code in [this repositpry](https://github.com/acschaefer/polex) and install all the required modules to generate the global reference map. The resulting global map is shown in Fig. 1.
 
 Fig. 1: global reference map
-<img src="https://user-images.githubusercontent.com/78635240/114787787-555b7880-9d4e-11eb-98a7-662765b00502.png" width="500" height="400">
+<img src="https://user-images.githubusercontent.com/78635240/114787787-555b7880-9d4e-11eb-98a7-662765b00502.png">
 
 # RI-EKF Localization
 The RI-EKF localization is implemented using ```inEKF.py```. In ```inEKF.py```:
@@ -34,8 +34,8 @@ Once complete downloading the data from NCLT dataset and building the dependenci
 5. ```evaluate()``` computes the mean error and root-mean-square error of between the estimated and ground truth poses
 
 Fig. 2: the NEES plot 
-<img src="https://user-images.githubusercontent.com/78635240/114788979-673e1b00-9d50-11eb-8f55-856c35e4fe3f.png" width="500" height="400">
+<img src="https://user-images.githubusercontent.com/78635240/114788979-673e1b00-9d50-11eb-8f55-856c35e4fe3f.png">
 
 
 Fig. 3: estimated and ground truth trajectories 
-<img src="https://user-images.githubusercontent.com/78635240/114788207-0a8e3080-9d4f-11eb-96dc-bb7587c1f5e4.png" width="500" height="400">
+<img src="https://user-images.githubusercontent.com/78635240/114788207-0a8e3080-9d4f-11eb-96dc-bb7587c1f5e4.png">
