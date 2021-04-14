@@ -16,8 +16,10 @@ The NCLT Dataset is a large-scale, long-term dataset collected on the North Camp
 # Landmarks Extraction and Mapping
 Landmarks extraction and mapping are implemented using the algoritm proposed in [this paper](http://ais.informatik.uni-freiburg.de/publications/papers/schaefer19ecmr.pdf) (Schaefer et al. 2019). Use Python code in [this repositpry](https://github.com/acschaefer/polex) and install all the required modules to generate the global reference map. The resulting global map is shown in Fig. 1.
 
+
 Fig. 1: global reference map
 ![image](https://user-images.githubusercontent.com/78635240/114791206-1e886100-9d54-11eb-88e6-7f145a342863.png)
+
 
 # RI-EKF Localization
 The RI-EKF localization is implemented using ```inEKF.py```. In ```inEKF.py```:
