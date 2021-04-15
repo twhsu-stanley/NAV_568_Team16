@@ -1,5 +1,5 @@
 # Examination of Long Term Environment Effects on Robot Localization Using RI-EKF and the NCLT Dataset
-ROB 530: Mobile Robotics Winter 2021
+University of Michigan ROB 530: Mobile Robotics Winter 2021
 
 Final Project Team 16: Lars Grantz, Ting-Wei Hsu, Adarsh Karnati
 
